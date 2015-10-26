@@ -46,44 +46,44 @@ Route::get('/filldata', function () {
         $tableModel ->save();
    }
 
-    //schoolbean数据
-    $jsonData = file_get_contents('datasource/CityBean.json');
-    $objData = json_decode($jsonData, true);
-    $schoolArr = $objData['results'];
+//     //schoolbean数据
+//     $jsonData = file_get_contents('datasource/CityBean.json');
+//     $objData = json_decode($jsonData, true);
+//     $schoolArr = $objData['results'];
     
-    foreach ($schoolArr as $sl){
+//     foreach ($schoolArr as $sl){
         
-        $cityname = $sl['cityname'];
+//         $cityname = $sl['cityname'];
 
-        foreach ($sl['schooljsonarray'] as $key => $value){
+//         foreach ($sl['schooljsonarray'] as $key => $value){
 
-            $tableModel = new SchoolModel();
-            $tableModel -> schoolname = $value;
-            $tableModel -> cityname = $cityname;
+//             $tableModel = new SchoolModel();
+//             $tableModel -> schoolname = $value;
+//             $tableModel -> cityname = $cityname;
             
-            $tableModel -> save();
+//             $tableModel -> save();
             
-        }
+//         }
    
-    }
+//     }
 
-    //payhistory表数据
+//     //payhistory表数据
     
-    $jsonData = file_get_contents('datasource/History.json');
-    $objData = json_decode($jsonData, true);
-    $payHistoryArr = $objData['results'];
+//     $jsonData = file_get_contents('datasource/History.json');
+//     $objData = json_decode($jsonData, true);
+//     $payHistoryArr = $objData['results'];
     
-    foreach ($payHistoryArr as $ph){
-        $payHistory = new PayHistoryModel();
+//     foreach ($payHistoryArr as $ph){
+//         $payHistory = new PayHistoryModel();
         
-        $payHistory ->id = $ph['objectId'];
-        $payHistory -> pay_money = $ph['pay_money'];
+//         $payHistory ->id = $ph['objectId'];
+//         $payHistory -> pay_money = $ph['pay_money'];
         
-        date_default_timezone_set('PRC');
-        $payHistory -> pay_date = date('Y-m-d H:i:s', strtotime($ph['pay_date']['iso']));
+//         date_default_timezone_set('PRC');
+//         $payHistory -> pay_date = date('Y-m-d H:i:s', strtotime($ph['pay_date']['iso']));
         
-        $payHistory ->save();
-    }
+//         $payHistory ->save();
+//     }
     return 'true';
 
 });
