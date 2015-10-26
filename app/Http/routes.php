@@ -21,51 +21,51 @@ Route::get('/filldata', function () {
     
         //printshopbean表数据
     
-//     $jsonData = file_get_contents('datasource/PrintShopBean.json');
-//     $objData = json_decode($jsonData, true);
-//     $printShopArr = $objData['results'];
+    $jsonData = file_get_contents('datasource/PrintShopBean.json');
+    $objData = json_decode($jsonData, true);
+    $printShopArr = $objData['results'];
     
-//     foreach ($printShopArr as $ps){
+    foreach ($printShopArr as $ps){
 
-//         $tableModel = new PrintShopModel();
+        $tableModel = new PrintShopModel();
         
-//         $tableModel ->id = $ps ['objectId'];
-//         $tableModel ->shopaddress = $ps ['shopaddress'];
-//         $tableModel ->shoplatlong = json_encode($ps ['shoplatlong']);
-//         $tableModel ->cityname = $ps ['cityname'];
-//         $tableModel ->schoolname = $ps ['schoolname'];
-//         $tableModel ->shopname = $ps ['shopname'];
-//         $tableModel ->bossname = $ps ['bossname'];
-//         $tableModel ->telenum = $ps ['telenum'];
-//         $tableModel ->adnum = $ps ['adnum'];
-//         $tableModel ->money = $ps ['money'];
+        $tableModel ->id = $ps ['objectId'];
+        $tableModel ->shopaddress = $ps ['shopaddress'];
+        $tableModel ->shoplatlong = json_encode($ps ['shoplatlong']);
+        $tableModel ->cityname = $ps ['cityname'];
+        $tableModel ->schoolname = $ps ['schoolname'];
+        $tableModel ->shopname = $ps ['shopname'];
+        $tableModel ->bossname = $ps ['bossname'];
+        $tableModel ->telenum = $ps ['telenum'];
+        $tableModel ->adnum = $ps ['adnum'];
+        $tableModel ->money = $ps ['money'];
         
-//         date_default_timezone_set('PRC');
-//         $tableModel ->paydeadline = date('Y-m-d H:i:s', strtotime($ps['paydeadline']['iso']));
+        date_default_timezone_set('PRC');
+        $tableModel ->paydeadline = date('Y-m-d H:i:s', strtotime($ps['paydeadline']['iso']));
         
-//         $tableModel ->save();
-//    }
+        $tableModel ->save();
+   }
 
-//     //schoolbean数据
-//     $jsonData = file_get_contents('datasource/CityBean.json');
-//     $objData = json_decode($jsonData, true);
-//     $schoolArr = $objData['results'];
+    //schoolbean数据
+    $jsonData = file_get_contents('datasource/CityBean.json');
+    $objData = json_decode($jsonData, true);
+    $schoolArr = $objData['results'];
     
-//     foreach ($schoolArr as $sl){
+    foreach ($schoolArr as $sl){
         
-//         $cityname = $sl['cityname'];
+        $cityname = $sl['cityname'];
 
-//         foreach ($sl['schooljsonarray'] as $key => $value){
+        foreach ($sl['schooljsonarray'] as $key => $value){
 
-//             $tableModel = new SchoolModel();
-//             $tableModel -> schoolname = $value;
-//             $tableModel -> cityname = $cityname;
+            $tableModel = new SchoolModel();
+            $tableModel -> schoolname = $value;
+            $tableModel -> cityname = $cityname;
             
-//             $tableModel -> save();
+            $tableModel -> save();
             
-//         }
+        }
    
-//     }
+    }
 
     //payhistory表数据
     
