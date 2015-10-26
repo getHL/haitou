@@ -15,7 +15,7 @@ class PayHistoryM extends Migration
         //
         Schema::create('payhistorybean' ,function(Blueprint $table){
             $table -> increments('id');
-            $table -> string('pay_money');
+            $table -> integer('pay_money');
             $table -> datetime('pay_date');
             $table -> timestamps();
         });
