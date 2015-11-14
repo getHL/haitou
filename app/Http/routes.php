@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', function(){
-    return view('pay');
+    return view('getSchoolList');
 });
 
 //数据填充
