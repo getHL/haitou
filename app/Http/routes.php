@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', function(){
-    return view('getSchoolList');
+    return view('showPayHistory');
 });
 
 //数据填充
@@ -69,7 +69,7 @@ Route::get('/fillPH', function (){
 
 Route::get('/fillPS', function () {
     
-        //printshopbean表数据
+    //printshopbean表数据
     
     $jsonData = file_get_contents('datasource/PrintShopBean.json');
     $objData = json_decode($jsonData, true);

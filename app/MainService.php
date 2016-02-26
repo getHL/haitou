@@ -19,7 +19,9 @@ class MainService
         $printShop ->shopaddress = $printShopMesg['shopaddress'];
         $printShop ->paydeadline = $printShopMesg['paydeadline'];
         $printShop ->cityname = $printShopMesg['cityname'];
-        $printShop ->shoplatlong = json_encode(['lat' => $printShopMesg['key_lat'],'key_longti' => $printShopMesg['key_longti']]);
+
+        //第一个经度lat改为key_lat
+        $printShop ->shoplatlong = json_encode(['key_lat' => $printShopMesg['key_lat'],'key_longti' => $printShopMesg['key_longti']]);
                 
         $printShop ->save();
         
@@ -54,7 +56,9 @@ class MainService
         $oldPrintShop ->shopaddress = $newPrintShop['shopaddress'];
         $oldPrintShop->paydeadline = $newPrintShop['paydeadline'];
         $oldPrintShop ->cityname = $newPrintShop['cityname'];
-        $oldPrintShop ->shoplatlong = json_encode(['lat' => $newPrintShop['key_lat'],'key_longti' => $newPrintShop['key_longti']]);
+
+        //第一个经度lat改为key_lat
+        $oldPrintShop ->shoplatlong = json_encode(['key_lat' => $newPrintShop['key_lat'],'key_longti' => $newPrintShop['key_longti']]);
         
         $oldPrintShop -> save();
         
