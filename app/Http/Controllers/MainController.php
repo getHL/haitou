@@ -144,7 +144,7 @@ class MainController extends Controller
        
        $service = new MainService();
        $payHistory = $service ->getPayHistory($printShopId);
-       
+
        return response() ->json(['success' => 'true', 'msg' => $payHistory]);
               
    }

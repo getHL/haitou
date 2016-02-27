@@ -115,8 +115,7 @@ class MainService
     //查看指定打印店付款记录
     function getPayHistory($printShopId){
         
-        $payHistoryItem = PayHistoryModel::find($printShopId);
-        
+        $payHistoryItem = PayHistoryModel::where('id', $printShopId) ->get();
         return $payHistoryItem;
     }
     
